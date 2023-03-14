@@ -1,7 +1,17 @@
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">create</button>
+<body>
+    <style>
+    .my_form {
+            max-width: 600px;
+            margin: 2rem auto;
+            text-align: center;
+        }
+    </style>
+</body>
+<div class="my_form">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Отправить запрос</button>
 
-
-</form>
+    </form>
+</div>

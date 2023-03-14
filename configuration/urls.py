@@ -2,14 +2,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from configuration import settings
-from main_ai_yolo.views import PredictAPIView, TestPredictAPIView
+from main_ai_yolo.views import PredictAPIView, predicting
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('predict/', PredictAPIView.as_view()),
-    # path('test_view/', QuantityView.as_view()),
-    path('test_predict/', TestPredictAPIView.as_view()),
-    # path('hello/', predicting)
+    path('predicting/', predicting)
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoxFind</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container my-5">
+        <form method="post" class="input-group ">
+             {% csrf_token %}
+                <input type="file" class="form-control w-100 mb-3" name="image" aria-describedby="input"
+                    aria-label="Загрузить">
+                <button class="btn btn-outline-success" type="submit" id="input">Отправить</button>
+
+        </form>
+    </div>
+    {% if count %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Количество</th>
+                <th scope="col">Процент</th>
+                <th scope="col">Цвет</th>
+                <th scope="col">Тип емкости</th>
+                <th scope="col">Цвет емкости</th>
+                <th scope="col">Отсутствие колеса</th>
+                <th scope="col">Емкость перевернута</th>
+                <th scope="col">Целостность емкости нарушена</th>
+                <th scope="col">Наличие следов повреждения емкости огнем</th>
+                <th scope="col">Повреждение корпуса</th>
+                <th scope="col">Повреждения конструкционных элементов для погрузки отходов</th>
+                <th scope="col">Дым</th>
+                <th scope="col">Огонь</th>
+                <th scope="col">Вид отходов (КГО/ТКО/РСО/Строительные отходы)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{ count }}</th>
+                <td>{{ count }}</td>
+                <td>Unknown</td>
+                <td>Unknown</td>
+                <th>Unknown</th>
+                <td>Unknown</td>
+                <td>Unknown</td>
+                <td>Unknown</td>
+                <th>Unknown</th>
+                <td>Unknown</td>
+                <td>Unknown</td>
+                <td>Unknown</td>
+                <td>Unknown</td>
+                <td>Unknown</td>
+            </tr>
+        </tbody>
+    </table>
+    {% endif %}
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Page</title>
+	    <style>
+        .image_detail {
+                max-width: 1200px;
+                margin: 2rem auto;
+                text-align: center;
+                font-size: 125%;
+            }
+    </style>
+</head>
+
+<div class="image_detail">
+    <h4>ID картинки = {{ image.id_image }}</h4>
+    <img class="post_image" src="{{ image.image.url }}" alt="not found">
+    <h4>Тип емкост = {{ image.container_type }}</h4>
+    <h4>Цвет емкости = {{ image.container_color }}</h4>
+    <h4>Отсутствие колеса = {{ image.missing_wheel }}</h4>
+    <h4>Ёмкость перевернута = {{ image.container_upside_down }}</h4>
+    <h4>Целостность емкости нарушена = {{ image.integrity_container_broken }}</h4>
+    <h4>Наличие следов повреждения емкости огнем = {{ image.traces_damage_containers_fire }}</h4>
+    <h4>Повреждение корпуса = {{ image.hull_damage }}</h4>
+    <h4>Повреждения конструкционных элементов для погрузки отходов = {{ image.damage_structural_elements_waste_generation }}</h4>
+    <h4>Дым = {{ image.smoke }}</h4>
+    <h4>Огонь = {{ image.fire }}</h4>
+    <h4>Вид отходов (КГО/ТКО/РСО/Строительные отходы) = {{ image.type_of_waste }}</h4>
+    <h4>Колличество распознанных объектов = {{ image.object_quantity }}</h4>
+    <h4>Процент = {{ image.percent }}</h4>
+    <button type="button" class="btn btn-warning">
+            <a href=" {% url 'predicting' %}">main page</a>
+    </button>
+</div>

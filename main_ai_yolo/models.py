@@ -26,3 +26,6 @@ class ImageBin(models.Model):
     fire = models.CharField(max_length=125, blank=True, null=True, verbose_name='огонь', default='Неизвестно')
     type_of_waste = models.CharField(max_length=125, blank=True, null=True,
                                      verbose_name='вид отходов (КГО/ТКО/РСО/Строительные отходы)', default='Неизвестно')
+    object_quantity = models.CharField(max_length=10, verbose_name='Колличество распознанных объектов', blank=True, null=True)
+    percent = models.CharField(max_length=255, verbose_name='Процент', blank=True, null=True)
+

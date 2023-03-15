@@ -63,7 +63,7 @@ def predicting(request):
         form = ImageBinForm(request.POST, request.FILES)
         if form.is_valid():
             cd = form.cleaned_data
-            results = model.predict(source=Image.open(request.FILES['image']).convert('RGB'), save=True, conf=0.3)
+            results = model.predict(source=Image.open(request.FILES['image']).convert('RGB'), save=True, conf=0.8)
             for result in results:
                 path = result.path
                 count = result.boxes.shape[0]

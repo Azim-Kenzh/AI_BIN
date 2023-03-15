@@ -10,25 +10,85 @@
                 font-size: 125%;
             }
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
 </head>
 
-<div class="image_detail">
-    <h4>ID картинки = {{ image.id_image }}</h4>
-    <img class="post_image" src="{{ image.image.url }}" alt="not found">
-    <h4>Тип емкост = {{ image.container_type }}</h4>
-    <h4>Цвет емкости = {{ image.container_color }}</h4>
-    <h4>Отсутствие колеса = {{ image.missing_wheel }}</h4>
-    <h4>Ёмкость перевернута = {{ image.container_upside_down }}</h4>
-    <h4>Целостность емкости нарушена = {{ image.integrity_container_broken }}</h4>
-    <h4>Наличие следов повреждения емкости огнем = {{ image.traces_damage_containers_fire }}</h4>
-    <h4>Повреждение корпуса = {{ image.hull_damage }}</h4>
-    <h4>Повреждения конструкционных элементов для погрузки отходов = {{ image.damage_structural_elements_waste_generation }}</h4>
-    <h4>Дым = {{ image.smoke }}</h4>
-    <h4>Огонь = {{ image.fire }}</h4>
-    <h4>Вид отходов (КГО/ТКО/РСО/Строительные отходы) = {{ image.type_of_waste }}</h4>
-    <h4>Колличество распознанных объектов = {{ image.object_quantity }}</h4>
-    <h4>Процент = {{ image.percent }}</h4>
-    <button type="button" class="btn btn-warning">
-            <a href=" {% url 'predicting' %}">main page</a>
+<div class="container">
+    <h1 class="text-center mb-5">Результат Обработанной картинки</h1>
+    <table class="table text-start mb-5">
+        <thead>
+            <tr>
+                <th scope="col fs-3">Критерий</th>
+                <th scope="col fs-3">Результат</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Количество</th>
+                <th>{{ image.object_quantity }}</th>
+            </tr>
+            <tr>
+                <th scope="col">Процент</th>
+                <th scope="row">{{ image.percent }}</th>
+            </tr>
+            <tr>
+                <th scope="col">Цвет</th>
+                <th scope="row">{{ image.container_color }}</th>
+            </tr>
+            <tr>
+                <th scope="col">Тип емкости</th>
+                <th scope="row">{{ image.container_color }}</th>
+            </tr>
+            <tr>
+                <th scope="col">Цвет емкости</th>
+                <th scope="row">{{ image.container_color }}</th>
+            </tr>
+            <tr>
+                <th scope="col">Отсутствие колеса</th>
+                <th scope="row">{{ image.container_color }}</th>
+            </tr>
+            <tr>
+                <th scope="col">Емкость перевернута</th>
+                <th scope="row">{{ image.container_color }}</th>
+            </tr>
+            <tr>
+                <th scope="col">Целостность емкости нарушена</th>
+                <th scope="row">{{ image.container_color }}</th>
+            </tr>
+            <tr>
+                <th scope="col">Наличие следов повреждения емкости огнем</th>
+                <th scope="row">{{ image.container_color }}</th>
+            </tr>
+            <tr>
+                <th scope="col">Повреждение корпуса</th>
+                <th scope="row">{{ image.container_color }}</th>
+            </tr>
+            <tr>
+                <th scope="col">Повреждения конструкционных элементов для погрузки отходов</th>
+                <th scope="row">{{ image.container_color }}</th>
+            </tr>
+            <tr>
+                <th scope="col">Дым</th>
+                <th scope="row">{{ image.container_color }}</th>
+            </tr>
+            <tr>
+                <th scope="col">Огонь</th>
+                <th scope="row">{{ image.container_color }}</th>
+            </tr>
+            <tr>
+                <th scope="col">Вид отходов (КГО/ТКО/РСО/Строительные отходы)</th>
+                <th scope="row">{{ image.container_color }}</th>
+            </tr>
+            <img class="post_image" src="{{ image.image.url }}" alt="not found">
+        </tbody>
+    </table>
+    <div class="text-center">
+    <button type="button" class="btn btn-outline-danger px-5 rounded-pill">
+            <a href=" {% url 'predicting' %}" class="nav-link">Обработать изображение</a>
     </button>
+    </div>
 </div>

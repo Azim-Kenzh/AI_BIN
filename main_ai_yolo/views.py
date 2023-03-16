@@ -18,7 +18,7 @@ from main_ai_yolo.models import ImageBin
 
 
 class PredictAPIView(APIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
         model = YOLO("./bestlast.pt")
@@ -41,15 +41,7 @@ class PredictAPIView(APIView):
                 image_bin.image.save(os.listdir('runs/detect/predict/')[0],
                                      open(f"runs/detect/predict/{os.listdir('runs/detect/predict/')[0]}", 'rb'))
                 shutil.rmtree('runs')
-                return Response({"Quantity": count, "Percent": [round(i, 2) for i in percent], "Color": 'Unknown',
-                                 "Capacity Type": "Unknown",
-                                 "Container color": 'Unknown', "No wheel": "Unknown",
-                                 "Capacity upside down": 'Unknown',
-                                 "The integrity of the container is broken": "Unknown",
-                                 "The presence of traces of damage to the container by fire": 'Unknown',
-                                 "Hull damage": "Unknown",
-                                 "Damage to structural elements for loading waste": 'Unknown', "Smoke": "Unknown",
-                                 "Fire": 'Unknown', "Type of waste": "Unknown", "image_url": image_bin.image.url})
+                return Response({"Quantity": count, "Percent": [round(i, 2) for i in percent], "image_url": image_bin.image.url})
 
         else:
             return Response(data={"message": "parameter 'image' is required"}, status=400)
